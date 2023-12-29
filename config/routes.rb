@@ -4,8 +4,8 @@ Rails.application.routes.draw do
       resources :bookings, only: [:index, :create]
     end
   end
-  devise_for :admins
-  devise_for :customers
+  devise_for :admins, path: 'admin'
+  devise_for :customers, path: 'customer'
   get '/admin', to: 'admin#index'
 end
 

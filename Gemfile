@@ -73,4 +73,6 @@ end
 
 # Gemfile
 gem 'devise'
+gem 'rack-cors'
+
 

@@ -1,14 +1,20 @@
-# db/seeds.rb
-admin = Admin.create(name: 'Admin User', email: 'admin@example.com', password: 'password')
-customer = Customer.create(name: 'Customer User', email: 'customer@example.com', password: 'password')
+# Create customers
+customer1 = Customer.create(
+  name: 'Tracy miranja',
+  email: 'tracy@example.com',
+  phone_number: '0769212978',
+  location: '456 Park Avenue, Cityville',
+  password: 'password123'
+)
 
+# Create bookings with valid customer references
 Booking.create(
-  customer_id: 1,
-  customer_name: 'Customer User',  
-  phone_number: '123456789',       
-  location: 'Sample Location',     
-  apartment: 'Sample Apartment',    
-  house_number: '123',
+  customer: customer1,
+  customer_name: customer1.name,
+  phone_number: customer1.phone_number,
+  location: '456 Park Avenue, Cityville',
+  apartment: 'Apartment 101',
+  house_number: '456',
   carpet_size: 'Large',
   collection_time: Time.current
 )

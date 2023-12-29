@@ -14,13 +14,17 @@ class Api::V1::BookingsController < ApplicationController
       else
         render json: @booking.errors, status: :unprocessable_entity
       end
+      # Log the request details
+      Rails.logger.info("Received booking request with parameters: #{booking_params}")
     end
   
     private
   
     def booking_params
-      params.require(:booking).permit(:customer_id, :item, :address, :house_number, :carpet_size)
+      params.require(:booking).permit(:customer_id, :customer_name, :phone_number, :location, :apartment, :house_number, :carpet_size, :collection_time)
     end
+    
+      
   
     def authenticate_admin
       authenticate_admin! # Devise method for admin authentication
